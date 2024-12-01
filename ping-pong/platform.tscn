@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqhri1t67cwmv"]
+
+[ext_resource type="Script" path="res://platform.gd" id="1_lnp2x"]
+[ext_resource type="Texture2D" uid="uid://brm6qcfwe52uu" path="res://stone_floor/Stylized_Stone_Floor_010_basecolor.png" id="2_bb4da"]
+[ext_resource type="Texture2D" uid="uid://b06smsewpitlf" path="res://stone_floor/Stylized_Stone_Floor_010_ambientOcclusion.png" id="3_okcux"]
+[ext_resource type="Texture2D" uid="uid://cahiba5520d8c" path="res://stone_floor/Stylized_Stone_Floor_010_normal.png" id="3_x3kfp"]
+[ext_resource type="Texture2D" uid="uid://dexef5sfsmg6p" path="res://stone_floor/Stylized_Stone_Floor_010_height.png" id="4_uik8q"]
+[ext_resource type="Texture2D" uid="uid://2ebdlr121rk8" path="res://metal/Metal_Pattern_008_roughness.png" id="6_jomlf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rm8pq"]
+height = 1.0
+radius = 15.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5n2c"]
+albedo_texture = ExtResource("2_bb4da")
+roughness_texture = ExtResource("6_jomlf")
+normal_enabled = true
+normal_texture = ExtResource("3_x3kfp")
+ao_enabled = true
+ao_texture = ExtResource("3_okcux")
+heightmap_enabled = true
+heightmap_texture = ExtResource("4_uik8q")
+uv1_scale = Vector3(0.1, 0.1, 0.1)
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1x28l"]
+material = SubResource("StandardMaterial3D_b5n2c")
+top_radius = 15.0
+bottom_radius = 15.0
+height = 1.0
+
+[node name="Pivot" type="StaticBody3D"]
+script = ExtResource("1_lnp2x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_rm8pq")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_1x28l")
+skeleton = NodePath("../..")

@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsdlfc2ncm7dr"
-path="res://.godot/imported/table_top.png-e19670ac6d976978b294b09ea39c2f0d.ctex"
+uid="uid://bdt1d5pra7bpd"
+path.s3tc="res://.godot/imported/Stylized_Tiles_004_basecolor.png-031094972fdf95b6e4d129dbc401876f.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://table_top.png"
-dest_files=["res://.godot/imported/table_top.png-e19670ac6d976978b294b09ea39c2f0d.ctex"]
+source_file="res://red_stone/Stylized_Tiles_004_basecolor.png"
+dest_files=["res://.godot/imported/Stylized_Tiles_004_basecolor.png-031094972fdf95b6e4d129dbc401876f.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

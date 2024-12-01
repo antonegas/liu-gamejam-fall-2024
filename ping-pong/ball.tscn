@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://ch6h5tjh6du6c"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_1hhe8"]
+[ext_resource type="Texture2D" uid="uid://bp2ncpwn768ow" path="res://metal/Metal_Pattern_008_basecolor.png" id="2_55oab"]
+[ext_resource type="Texture2D" uid="uid://ddqdxqjiykx7o" path="res://metal/Metal_Pattern_008_ambientOcclusion.png" id="3_5nnv3"]
+[ext_resource type="Texture2D" uid="uid://bd080y44sii2p" path="res://metal/Metal_Pattern_008_height.png" id="3_v3sjj"]
+[ext_resource type="Texture2D" uid="uid://crjgdqvhmso0e" path="res://metal/Metal_Pattern_008_metallic.png" id="4_igvsc"]
+[ext_resource type="Texture2D" uid="uid://2ebdlr121rk8" path="res://metal/Metal_Pattern_008_roughness.png" id="5_r88sl"]
+[ext_resource type="Texture2D" uid="uid://durhesmnotjnt" path="res://metal/Metal_Pattern_008_normal.png" id="6_eav11"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_grjne"]
+albedo_color = Color(0.8, 0.8, 0.8, 1)
+albedo_texture = ExtResource("2_55oab")
+metallic = 1.0
+metallic_texture = ExtResource("4_igvsc")
+roughness_texture = ExtResource("5_r88sl")
+normal_enabled = true
+normal_texture = ExtResource("6_eav11")
+ao_enabled = true
+ao_texture = ExtResource("3_5nnv3")
+ao_on_uv2 = true
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("3_v3sjj")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv2_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_mj2n2"]
+material = SubResource("StandardMaterial3D_grjne")
+radius = 2.0
+height = 4.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m3xdc"]
+radius = 2.0
+
+[node name="Ball" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94007, 0)
+gravity_scale = 3.0
+script = ExtResource("1_1hhe8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_mj2n2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_m3xdc")

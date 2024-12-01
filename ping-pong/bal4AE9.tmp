@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch6h5tjh6du6c"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_1hhe8"]
+[ext_resource type="Texture2D" uid="uid://brm6qcfwe52uu" path="res://stone_floor/Stylized_Stone_Floor_010_basecolor.png" id="2_4s00j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p47cw"]
+albedo_texture = ExtResource("2_4s00j")
+
+[sub_resource type="SphereMesh" id="SphereMesh_mj2n2"]
+material = SubResource("StandardMaterial3D_p47cw")
+radius = 2.0
+height = 4.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m3xdc"]
+radius = 2.0
+
+[node name="Ball" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.94007, 0)
+gravity_scale = 3.0
+script = ExtResource("1_1hhe8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_mj2n2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_m3xdc")
+
+[node name="Ball" type="Node3D" parent="."]
